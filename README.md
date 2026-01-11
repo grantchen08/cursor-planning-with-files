@@ -4,6 +4,7 @@
 
 A Cursor rules adaptation of [planning-with-files](https://github.com/OthmanAdi/planning-with-files) — the workflow pattern behind Manus AI's $2B acquisition.
 
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](#changelog)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Cursor Rules](https://img.shields.io/badge/Cursor-Rules-purple)](https://docs.cursor.com/context/rules-for-ai)
 
@@ -109,6 +110,26 @@ This project is a Cursor adaptation of [planning-with-files](https://github.com/
 
 The methodology is based on [Context Engineering for AI Agents](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) from Manus AI.
 
+## Changelog
+
+### v1.1.0 (2026-01-11)
+
+- **Added:** Self-Evolution section for upstreaming improvements back to this repo
+  - Guidelines on when to upstream (new anti-patterns, better heuristics, missing guidance)
+  - What makes a good upstream candidate vs. project-specific customization
+  - Step-by-step instructions for forking, committing, and creating PRs
+  - Upstream checklist to ensure quality contributions
+
+### v1.0.0 (Initial Release)
+
+- Core 3-file pattern (`task_plan.md`, `findings.md`, `progress.md`)
+- Critical rules (Create Plan First, 2-Action Rule, Read Before Decide, etc.)
+- 3-Strike Error Protocol
+- Read vs Write Decision Matrix
+- 5-Question Reboot Test
+- Anti-patterns guide
+- Task Plan Template
+
 ## Contributing
 
 Contributions welcome! Please:
@@ -116,6 +137,8 @@ Contributions welcome! Please:
 1. Fork the repository
 2. Create a feature branch
 3. Submit a pull request
+
+See the **Self-Evolution** section in the [rules file](.cursor/rules/planning-with-files.mdc) for guidelines on what makes a good contribution.
 
 ## License
 
