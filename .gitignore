@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Project planning files (these are created per-project, not part of this repo)
+# Only ignore at root level, not in templates/
+/task_plan.md
+/findings.md
+/progress.md

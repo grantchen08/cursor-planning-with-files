@@ -1,0 +1,189 @@
+---
+description: Manus-style file-based planning for complex tasks
+globs: 
+alwaysApply: true
+---
+
+# Planning with Files
+
+Use persistent markdown files as "working memory on disk" for complex tasks.
+
+## Core Principle
+
+```
+Context Window = RAM (volatile, limited)
+Filesystem = Disk (persistent, unlimited)
+→ Anything important gets written to disk.
+```
+
+## When to Use This Pattern
+
+**Use for:**
+- Multi-step tasks (3+ steps)
+- Research tasks
+- Building/creating features
+- Tasks spanning many tool calls
+- Refactoring across multiple files
+
+**Skip for:**
+- Simple questions
+- Single-file edits
+- Quick lookups
+
+## The 3-File Pattern
+
+For complex tasks, create these files in the project root:
+
+| File | Purpose | When to Update |
+|------|---------|----------------|
+| `task_plan.md` | Phases, progress, decisions, errors | After each phase |
+| `findings.md` | Research, discoveries, requirements | After ANY discovery |
+| `progress.md` | Session log, test results | Throughout session |
+
+## Critical Rules
+
+### 1. Create Plan First
+Never start a complex task without `task_plan.md`. This is non-negotiable.
+
+### 2. The 2-Action Rule
+After every 2 view/browser/search operations, IMMEDIATELY save key findings to `findings.md`.
+This prevents visual/multimodal information from being lost.
+
+### 3. Read Before Decide
+Before major decisions (architecture, approach changes), re-read `task_plan.md` to keep goals in focus.
+
+### 4. Update After Act
+After completing any phase:
+- Mark phase status: `pending` → `in_progress` → `complete`
+- Log any errors encountered
+- Note files created/modified
+
+### 5. Log ALL Errors
+Every error goes in the plan file with attempt number and resolution:
+
+```markdown
+## Errors Encountered
+| Error | Attempt | Resolution |
+|-------|---------|------------|
+| TypeError: x is undefined | 1 | Added null check |
+| Build failed | 2 | Fixed import path |
+```
+
+### 6. Never Repeat Failures
+```
+if action_failed:
+    next_action != same_action
+```
+Track what you tried. Mutate the approach.
+
+## The 3-Strike Error Protocol
+
+```
+ATTEMPT 1: Diagnose & Fix
+  → Read error carefully
+  → Identify root cause
+  → Apply targeted fix
+
+ATTEMPT 2: Alternative Approach
+  → Same error? Try different method
+  → Different tool? Different library?
+  → NEVER repeat exact same failing action
+
+ATTEMPT 3: Broader Rethink
+  → Question assumptions
+  → Search for solutions
+  → Consider updating the plan
+
+AFTER 3 FAILURES: Escalate to User
+  → Explain what you tried
+  → Share the specific error
+  → Ask for guidance
+```
+
+## Read vs Write Decision Matrix
+
+| Situation | Action | Reason |
+|-----------|--------|--------|
+| Just wrote a file | DON'T read it back | Content still in context |
+| Viewed image/PDF | Write findings NOW | Multimodal → text before lost |
+| Browser returned data | Write to file | Screenshots don't persist |
+| Starting new phase | Read plan/findings | Re-orient if context stale |
+| Error occurred | Read relevant file | Need current state to fix |
+| Resuming after gap | Read all planning files | Recover state |
+
+## The 5-Question Reboot Test
+
+If you can answer these, context is solid:
+
+| Question | Answer Source |
+|----------|---------------|
+| Where am I? | Current phase in task_plan.md |
+| Where am I going? | Remaining phases |
+| What's the goal? | Goal statement in plan |
+| What have I learned? | findings.md |
+| What have I done? | progress.md |
+
+## Anti-Patterns
+
+| Don't | Do Instead |
+|-------|------------|
+| State goals once and forget | Re-read plan before decisions |
+| Hide errors and retry silently | Log errors to plan file |
+| Stuff everything in context | Store large content in files |
+| Start executing immediately | Create plan file FIRST |
+| Repeat failed actions | Track attempts, mutate approach |
+
+## Task Plan Template
+
+```markdown
+# Task Plan: [Brief Description]
+
+## Goal
+[One sentence describing the end state]
+
+## Current Phase
+Phase 1
+
+## Phases
+
+### Phase 1: Requirements & Discovery
+- [ ] Understand user intent
+- [ ] Identify constraints
+- [ ] Document findings
+- **Status:** in_progress
+
+### Phase 2: Planning & Structure
+- [ ] Define technical approach
+- [ ] Create structure if needed
+- **Status:** pending
+
+### Phase 3: Implementation
+- [ ] Execute step by step
+- [ ] Test incrementally
+- **Status:** pending
+
+### Phase 4: Testing & Verification
+- [ ] Verify requirements met
+- [ ] Document test results
+- **Status:** pending
+
+### Phase 5: Delivery
+- [ ] Review output
+- [ ] Deliver to user
+- **Status:** pending
+
+## Decisions Made
+| Decision | Rationale |
+|----------|-----------|
+
+## Errors Encountered
+| Error | Attempt | Resolution |
+|-------|---------|------------|
+```
+
+## Reminder
+
+Since Cursor doesn't have automatic hooks:
+- The user may need to remind you to create/update planning files
+- Proactively suggest creating planning files for complex tasks
+- Periodically re-read `task_plan.md` during long tasks
