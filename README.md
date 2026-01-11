@@ -1,6 +1,6 @@
 # Cursor Planning with Files
 
-> **Manus-style file-based planning for Cursor IDE**
+> **Manus-style file-based planning for Cursor IDE & Agent**
 
 A Cursor rules adaptation of [planning-with-files](https://github.com/OthmanAdi/planning-with-files) — the workflow pattern behind Manus AI's $2B acquisition.
 
@@ -9,7 +9,18 @@ A Cursor rules adaptation of [planning-with-files](https://github.com/OthmanAdi/
 
 ## What is This?
 
-This project brings the **"planning with files"** methodology to Cursor IDE. Instead of relying on volatile context, you use persistent markdown files as your AI's "working memory on disk."
+This project brings the **"planning with files"** methodology to Cursor IDE and Cursor Agent. Instead of relying on volatile context, you use persistent markdown files as your AI's "working memory on disk."
+
+### Works With All Cursor Modes
+
+| Mode | Supported |
+|------|-----------|
+| **Cursor Chat** (Cmd+L) | ✅ |
+| **Cursor Agent** (agentic mode) | ✅ |
+| **Inline Edit** (Cmd+K) | ✅ |
+| **Composer** | ✅ |
+
+**Cursor Agent benefits the most** from this pattern — it makes many autonomous tool calls and is prone to goal drift without persistent planning.
 
 ### The Core Principle
 
@@ -24,7 +35,7 @@ Filesystem = Disk (persistent, unlimited)
 
 ```bash
 # Clone this repo
-git clone https://github.com/YOUR_USERNAME/cursor-planning-with-files.git
+git clone https://github.com/grantchen08/cursor-planning-with-files.git
 
 # Copy rules to your project
 cp -r cursor-planning-with-files/.cursor YOUR_PROJECT/
