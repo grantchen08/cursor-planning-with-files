@@ -181,64 +181,17 @@ Phase 1
 |-------|---------|------------|
 ```
 
-## Self-Evolution: Improving These Guidelines
+## Domain-Specific Workflows
 
-These guidelines are living documentation. When you discover patterns that significantly improve the workflow, upstream the changes to the source repository:
+For specialized domains, create `workflow/*.md` files with detailed docs. Use `.mdc` rules as minimal pointers:
 
-**Upstream repo:** https://github.com/grantchen08/cursor-planning-with-files
+```
+.cursor/rules/backend.mdc  →  workflow/backend.md
+```
 
-### When to Upstream
+## Self-Evolution
 
-| Trigger | Example |
-|---------|---------|
-| Discovered a new anti-pattern | Realized "deleting plan files mid-task" causes context loss |
-| Found a better heuristic | "3-Action Rule" works better than "2-Action Rule" for certain tasks |
-| Identified missing guidance | No guidance on handling multi-repo tasks |
-| Repeated friction point | Same issue keeps coming up across sessions |
-
-### What to Upstream
-
-**Good candidates:**
-- New rules that prevent repeated mistakes
-- Improved templates based on real usage
-- Clarifications that resolve ambiguity
-- New sections addressing gaps
-
-**Skip:**
-- Project-specific customizations (put those in project-level rules)
-- Personal preferences without general value
-- Minor wording tweaks
-
-### How to Upstream
-
-1. **Fork or clone the upstream repo:**
-   ```bash
-   git clone https://github.com/grantchen08/cursor-planning-with-files
-   ```
-
-2. **Edit the rule file:**
-   ```
-   .cursor/rules/planning-with-files.mdc
-   ```
-
-3. **Commit with clear message:**
-   ```bash
-   git add .cursor/rules/planning-with-files.mdc
-   git commit -m "rules: add [description of improvement]"
-   ```
-
-4. **Push or create PR:**
-   - If you have push access: `git push`
-   - Otherwise: create a PR for review at the upstream repo
-
-5. **Document the rationale:** Include why the change improves the workflow, ideally with a concrete example of the problem it solves.
-
-### Upstream Checklist
-
-- [ ] Change is generally applicable (not project-specific)
-- [ ] Includes concrete example or rationale
-- [ ] Follows existing format and style
-- [ ] Tested in at least one real task
+Upstream improvements to: https://github.com/grantchen08/cursor-planning-with-files
 
 ## Reminder
 

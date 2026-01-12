@@ -114,20 +114,14 @@ The methodology is based on [Context Engineering for AI Agents](https://manus.im
 
 ### v1.1.0 (2026-01-11)
 
-- **Added:** Self-Evolution section for upstreaming improvements back to this repo
-  - Guidelines on when to upstream (new anti-patterns, better heuristics, missing guidance)
-  - What makes a good upstream candidate vs. project-specific customization
-  - Step-by-step instructions for forking, committing, and creating PRs
-  - Upstream checklist to ensure quality contributions
+- **Added:** Domain-Specific Workflows — use `workflow/*.md` for detailed domain docs, `.mdc` as minimal pointers
+- **Added:** Self-Evolution — upstream improvements to this repo
 
 ### v1.0.0 (Initial Release)
 
 - Core 3-file pattern (`task_plan.md`, `findings.md`, `progress.md`)
 - Critical rules (Create Plan First, 2-Action Rule, Read Before Decide, etc.)
 - 3-Strike Error Protocol
-- Read vs Write Decision Matrix
-- 5-Question Reboot Test
-- Anti-patterns guide
 - Task Plan Template
 
 ## Contributing
