@@ -46,13 +46,15 @@ Or manually copy `.cursor/rules/planning-with-files.mdc` to your project.
 
 ## The 3-File Pattern
 
-For complex tasks, create these files in your project root:
+For complex tasks, create these files under `workspace/<TASK>/` (one task per directory, one chat per task):
 
 | File | Purpose | When to Update |
 |------|---------|----------------|
-| `task_plan.md` | Phases, progress, decisions, errors | After each phase |
-| `findings.md` | Research, discoveries, requirements | After ANY discovery |
-| `progress.md` | Session log, test results | Throughout session |
+| `workspace/<TASK>/task_plan.md` | Phases, progress, decisions, errors | After each phase |
+| `workspace/<TASK>/findings.md` | Research, discoveries, requirements | After ANY discovery |
+| `workspace/<TASK>/progress.md` | Session log, test results | Throughout session |
+
+**Multi-tasking rule:** Never store these files in the repo root. Each task gets its own directory under `workspace/` to avoid cross-session overwrites.
 
 Templates are provided in the `templates/` directory.
 

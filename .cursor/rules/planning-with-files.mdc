@@ -32,25 +32,27 @@ Filesystem = Disk (persistent, unlimited)
 
 ## The 3-File Pattern
 
-For complex tasks, create these files in the project root:
+For complex tasks, create these files under `workspace/<TASK>/` (one task per directory, one chat per task):
 
 | File | Purpose | When to Update |
 |------|---------|----------------|
-| `task_plan.md` | Phases, progress, decisions, errors | After each phase |
-| `findings.md` | Research, discoveries, requirements | After ANY discovery |
-| `progress.md` | Session log, test results | Throughout session |
+| `workspace/<TASK>/task_plan.md` | Phases, progress, decisions, errors | After each phase |
+| `workspace/<TASK>/findings.md` | Research, discoveries, requirements | After ANY discovery |
+| `workspace/<TASK>/progress.md` | Session log, test results | Throughout session |
+
+**Multi-tasking rule:** Never store these files in the repo root. Each task gets its own directory under `workspace/` to avoid cross-session overwrites.
 
 ## Critical Rules
 
 ### 1. Create Plan First
-Never start a complex task without `task_plan.md`. This is non-negotiable.
+Never start a complex task without `workspace/<TASK>/task_plan.md`. This is non-negotiable.
 
 ### 2. The 2-Action Rule
 After every 2 view/browser/search operations, IMMEDIATELY save key findings to `findings.md`.
 This prevents visual/multimodal information from being lost.
 
 ### 3. Read Before Decide
-Before major decisions (architecture, approach changes), re-read `task_plan.md` to keep goals in focus.
+Before major decisions (architecture, approach changes), re-read `workspace/<TASK>/task_plan.md` to keep goals in focus.
 
 ### 4. Update After Act
 After completing any phase:
@@ -117,11 +119,11 @@ If you can answer these, context is solid:
 
 | Question | Answer Source |
 |----------|---------------|
-| Where am I? | Current phase in task_plan.md |
+| Where am I? | Current phase in `workspace/<TASK>/task_plan.md` |
 | Where am I going? | Remaining phases |
 | What's the goal? | Goal statement in plan |
-| What have I learned? | findings.md |
-| What have I done? | progress.md |
+| What have I learned? | `workspace/<TASK>/findings.md` |
+| What have I done? | `workspace/<TASK>/progress.md` |
 
 ## Anti-Patterns
 
@@ -134,6 +136,8 @@ If you can answer these, context is solid:
 | Repeat failed actions | Track attempts, mutate approach |
 
 ## Task Plan Template
+
+Store this in `workspace/<TASK>/task_plan.md`:
 
 ```markdown
 # Task Plan: [Brief Description]
@@ -198,4 +202,4 @@ Upstream improvements to: https://github.com/grantchen08/cursor-planning-with-fi
 Since Cursor doesn't have automatic hooks:
 - The user may need to remind you to create/update planning files
 - Proactively suggest creating planning files for complex tasks
-- Periodically re-read `task_plan.md` during long tasks
+- Periodically re-read `workspace/<TASK>/task_plan.md` during long tasks
